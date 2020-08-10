@@ -45,7 +45,7 @@ const StyledSignupForm = styled.div`
   }
 `;
 
-export const SignupForm = () => {
+export const SignupForm = ({ handleSendEmail, handleOnChangeEmail, email }) => {
   return (
     <StyledSignupForm>
       <form>
@@ -53,8 +53,16 @@ export const SignupForm = () => {
           className="MessageInput"
           placeholder="email address"
           type="email"
+          value={email}
+          onChange={({ target }) => handleOnChangeEmail(target.value)}
         />
-        <button type="submit">Subscribe</button>
+        <button
+          type="submit"
+          onClick={() => handleSendEmail(email)}
+          disabled={!validator.isEmail(email)}
+        >
+          Subscribe
+        </button>
       </form>
     </StyledSignupForm>
   );
