@@ -7,7 +7,6 @@ const StyledSignupForm = styled.div`
     margin: 50px auto;
   }
   .MessageInput {
-    color: white;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -51,8 +50,8 @@ export const SignupForm = () => {
       <form>
         <input
           className="MessageInput"
-          type="email"
           placeholder="email address"
+          type="email"
         />
         <button type="submit">Subscribe</button>
       </form>
