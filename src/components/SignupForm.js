@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import validator from "validator";
 
 const StyledSignupForm = styled.div`
   form {

@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Loading from "./shared/Loading";
+import axios from "axios";
+import { apiUrl, notify } from "./helpers";
 
 //components
 import { SignupForm } from "./components/SignupForm";
@@ -13,10 +16,18 @@ const StyledHeader = styled.h1`
 `;
 
 function App() {
+  const [state, setState] = useState({
+    email: "",
+    loading: false,
+  });
+
+  const handleLoadingState = (loading) => {
+    setState({ loading: loading });
+  };
   return (
     <div>
       <StyledHeader>Subscribe to my Newsletter!</StyledHeader>
-      <SignupForm />
+      {state.loading ? <Loading message="Working on it..." /> : <SignupForm />}
     </div>
   );
 }
